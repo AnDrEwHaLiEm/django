@@ -1,0 +1,17 @@
+{% for item in product%}
+<div class="product_card">
+    <div class="image" style="background-image:url('http://localhost:8000/media/{{item.productImage}}');">
+    </div>
+    <div class="info">
+        <a href="{{HOST_URL}}/product/{{item.id}}" class="product_title">
+            {{item.productName}}
+        </a>
+        <p class="caption">
+            Brand : {{item.productBrand}}
+        </p>
+        <a class="date_badge badge">
+           Price :  {{item.productPrice}}
+        </a>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'index.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'product_card.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    {% include "header.html" %}
+    <h1 style="text-align: center;; margin-top: 10%;margin-bottom: 2%;">Cart</h1>
+    <section class="apps">
+        {% for item in cart%}
+        <div class="product_card">
+            <div class="image"
+                style="background-image:url('http://localhost:8000/media/{{item.product.productImage}}');">
+            </div>
+            <div class="info">
+                <p class="product_title">
+                    {{item.product.productName}}
+                </p>
+                <p class="caption">
+                    Brand : {{item.product.productBrand}}
+                </p>
+                <a class="date_badge badge">
+                    Price : {{item.product.productPrice}}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+</body>
+
+</html>
